@@ -2,23 +2,23 @@
 Addressing the Job Shop Scheduling Problem (JSSP), the project aims to optimize industrial job scheduling, minimizing makespan. It involves developing an efficient program for JSSP instances and creating a concise technical report on its efficacy in diverse scenarios, contributing to industrial scheduling solutions.
 
 
-## Installation
-# jacksonpy.
+# Installation
+## jacksonpy.
 ```bash
 pip install PyJacksonAlgo
 ```
 
-# tqdm
+## tqdm
 ```bash
 pip install tqdm
 ```
 
-# matplotlib
+## matplotlib
 ```bash
 pip install matplotlib
 ```
 
-# numpy
+## numpy
 ```bash
 pip install numpy
 ```
