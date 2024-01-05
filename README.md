@@ -3,10 +3,11 @@ Addressing the Job Shop Scheduling Problem (JSSP), the project aims to optimize 
 
 
 ## Installation
-'''bash
+```bash
 pip install PyJacksonAlgo
+```
 
-'''bash
+```bash
 pip install tqdm
-
+```
 
