@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/github/actions/workflow/AristosDraga/Job_Shop_Scheduling_Problem/Job_Shop_Scheduling_Problem?branch=main)
+![Build Status](https://img.shields.io/github/actions/workflow/status/AristosDraga/Job_Shop_Scheduling_Problem/python-app.yml?branch=main)
 
 
 # Job_Shop_Scheduling_Problem
