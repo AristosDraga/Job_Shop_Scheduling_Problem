@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/github/workflow/status/AristosDraga/Job_Shop_Scheduling_Problem/YourWorkflowName?branch=main)
+![Build Status](https://img.shields.io/github/actions/workflow/AristosDraga/Job_Shop_Scheduling_Problem/Job_Shop_Scheduling_Problem?branch=main)
 
 
 # Job_Shop_Scheduling_Problem
