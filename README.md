@@ -1,17 +1,25 @@
-![Build Status](https://img.shields.io/github/actions/workflow/status/AristosDraga/Job_Shop_Scheduling_Problem/python-app.yml?branch=main)
-
-
 # Job_Shop_Scheduling_Problem
 Addressing the Job Shop Scheduling Problem (JSSP), the project aims to optimize industrial job scheduling, minimizing makespan. It involves developing an efficient program for JSSP instances and creating a concise technical report on its efficacy in diverse scenarios, contributing to industrial scheduling solutions.
 
 
 ## Installation
-The following should be installed for 
+# jacksonpy.
 ```bash
 pip install PyJacksonAlgo
 ```
 
+# tqdm
 ```bash
 pip install tqdm
+```
+
+# matplotlib
+```bash
+pip install matplotlib
+```
+
+# numpy
+```bash
+pip install numpy
 ```
 
