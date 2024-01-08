@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Example: Project Report
+%
+% Source: http://www.howtotex.com
+%
+% Feel free to distribute this example, but please keep the referral
+% to howtotex.com
+% Date: March 2011 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Edit the title below to update the display in My Documents
+%\title{Project Report}
+%
+
+
+
+%%% Preamble
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage{fourier}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx}	
+\usepackage{url}
+\usepackage{bookmark}
+
+%%%Greek and english
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguages{english}
+%%% Bibliography 
+\usepackage{biblatex}
+\addbibresource{ref.bib}
+ 
+%%%center tables
+\usepackage{float}
+\restylefloat{table}
+%%%% algorithms
+\usepackage{algorithm} 
+\usepackage{algpseudocode} 
+
+%%%%%images
+\graphicspath{ {./images/} }
+
+
+%%%fonts
+\usepackage{fontspec}
+\setmainfont{FreeSerif}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Italic,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldItalic
+]
+\setsansfont{FreeSans}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
+\setmonofont{FreeMono}[
+  Extension      = .otf,
+  UprightFont    = *,
+  ItalicFont     = *Oblique,
+  BoldFont       = *Bold,
+  BoldItalicFont = *BoldOblique,
+]
+
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+%%%paragraph 
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.5em}
+
+\usepackage{titlesec, lipsum}
+\titleformat{\paragraph}[block]{\filcenter}{}{0pt}{}
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Πανεπιστήμιο Ιωαννίνων Τμήμα Πληροφορικής και Τηλεπικοινωνίων} \\ [1em]
+		\normalfont \normalsize \textsc{Αλγόριθμοι και πολυπλοκότητα} \\ [1em]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge To πρόβλημα χρονοπρογραμματισμού εργασιών σε βιομηχανικό περιβάλλον. \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Αριστείδης Δραγάτης\\[-1pt]		\normalsize
+	    2111 \\[-1pt]   \normalsize
+        \today
+}
+\date{}
+
+%%% Begin document
+\begin{document}
+
+\maketitle
+%%% Abstract
+
+\section*{Ερώτημα 1}
+Job Shop Scheduling: \\
+Στο Job Shop Scheduling έχουμε n εργασίες διαφορετικών χρόνων επεξεργασίας, οι οποίες πρέπει να προγραμματιστούν σε μηχανές m με διαφορετική επεξεργαστική ισχύ, ενώ προσπαθούμε να ελαχιστοποιήσουμε το makespan ( τη συνολική διάρκεια του χρονοδιαγράμματος).
+i)Κάθε εργασία (job) έχει το δικό της ξεχωριστό μονοπάτι. 
+
+Permutation Flow Shop: \\ 
+Είναι ένας ειδικός τύπος προβλήματος προγραμματισμού flow shop, στο οποίο η σειρά επεξεργασίας των εργασιών στους πόρους είναι η ίδια για κάθε επόμενο βήμα επεξεργασίας.
+i)Όλες οι εργασίες (jobs) έχουν την ίδια σειρά επεξεργασίας μέσα στις μηχανές. \\
+και ii) κάθε μηχανή επεξεργάζεται τις εργασίες με την ίδια σειρά.
+
+Flow Shop:\\
+*Στο Flow Shop πρόβλημα m μηχανές που πρέπει να επεξεργαστούν n εργασίες ( jobs ), 
+όπου υπάρχει αυστηρή σειρά όλων των λειτουργιών που πρέπει να εκτελεστούν σε όλες τις εργασίες.
+Η πρώτη συνθήκη είναι ίδια με το permutation flow shop δηλαδή: \\
+i)Όλες οι εργασίες (jobs ) έχουν την ίδια σειρά επεξεργασίας μέσα στις μηχανές. \\
+Ενώ η δεύτερη συνθήκη αλλάζει: \\
+ii) Η σειρά των εργασιών σε κάθε μηχανή μπορεί να είναι διαφορετικός. ( πχ. σαν να υπάρχει ένα buffer ανάμεσα στις εργασίες και μπορούμε να αλλάξουμε την σειρά των εργασιών σε κάθε μηχανή ).
+
+
+Open Shop: \\
+Σε αυτή την περίπτωση κάθε εργασία αποτελείται από ένα σύνολο λειτουργιών που πρέπει να υποβληθούν σε επεξεργασία με αυθαίρετη σειρά, δηλαδή η σειρά με την οποία συμβαίνουν τα βήματα επεξεργασίας μπορεί να ποικίλει ελεύθερα. \\ 
+
+NP-Hard meaning:
+Είναι η καθοριστική ιδιότητα μιας κατηγορίας προβλημάτων που είναι ανεπίσημα "τουλάχιστον τόσο σκληρά όσο τα δυσκολότερα προβλήματα στο NP". \\ 
+Δηλαδή ένα πρόβλημα απόφασης H είναι NP-hard όταν για κάθε πρόβλημα L στο NP, υπάρχει μια πολυωνυμική μείωση πολλά προς ένα από L σε H.  	
+
+	
+\section*{Ερώτημα 2}
+Η δομή δεδομένων που επέλεξα είναι ένα λεξικό, όπου κλειδί είναι το όνομα κάθε στιγμιότυπου προβλήματος, και τιμή είναι τα περιεχόμενα κάθε στιγμιότυπου προβλήματος. Πιο συγκεκριμένα χρησιμοποιήθηκε η εντολή with open() μέσα σε μια for loop η οποία διαβάζει κάθε αρχείο ξεχωριστά και στη συνέχεια τα περνάμε στη δομή dictionary. 
+    
+    
+\section*{Ερώτημα 3}
+Ο dispatching rule που επέλεξα για την επίλυση των στιγμιοτύπων προβλημάτων JSSP, είναι το Shortest processing time (SPT). \\
+Solving JSSP instance in file txt\_files/la01.txt: \\
+Number of jobs: 10 \\
+Number of machines: 5 \\
+Job processing order (SPT rule): [3, 2, 9, 5, 1, 2, 8, 9, 2, 3, 1, 5, 5, 8, 3, 8, 3, 6, 10, 9, 9, 2, 1, 6, 1, 4, 8, 6, 5, 4, 7, 2, 10, 4, 4, 7, 10, 4, 6, 10, 5, 8, 7, 7, 6, 7, 1, 10, 3, 9] \\
+
+
+Solving JSSP instance in file txt\_files/la02.txt: \\
+Number of jobs: 10 \\
+Number of machines: 5  \\
+Job processing order (SPT rule): [7, 9, 1, 5, 2, 10, 7, 1, 3, 2, 2, 5, 6, 3, 7, 1, 2, 10, 9, 5, 4, 5, 5, 6, 7, 8, 9, 9, 3, 10, 6, 8, 6, 3, 10, 9, 1, 4, 10, 7, 8, 2, 4, 1, 4, 8, 4, 6, 8, 3] \\
+
+
+Solving JSSP instance in file txt\_files/la03.txt: \\
+Number of jobs: 10 \\
+Number of machines: 5 \\
+Job processing order (SPT rule): [9, 10, 8, 10, 6, 3, 2, 10, 7, 7, 2, 1, 8, 2, 5, 8, 7, 4, 1, 3, 9, 10, 2, 1, 2, 3, 3, 3, 4, 9, 8, 9, 4, 5, 5, 4, 9, 7, 5, 4, 6, 5, 6, 1, 10, 1, 8, 6, 6, 7] \\
+
+
+Solving JSSP instance in file txt\_files/la04.txt: \\
+Number of jobs: 10 \\ 
+Number of machines: 5 \\ 
+Job processing order (SPT rule): [9, 10, 8, 10, 6, 3, 2, 10, 7, 7, 2, 1, 8, 2, 5, 8, 7, 4, 1, 3, 9, 10, 2, 1, 2, 3, 3, 3, 4, 9, 8, 9, 4, 5, 5, 4, 9, 7, 5, 4, 6, 5, 6, 1, 10, 1, 8, 6, 6, 7] \\
+
+
+Solving JSSP instance in file txt\_files/la05.txt: \\
+Number of jobs: 10 \\
+Number of machines: 5 \\
+Job processing order (SPT rule): [2, 6, 9, 7, 8, 10, 4, 3, 3, 5, 10, 5, 5, 10, 5, 6, 7, 8, 4, 2, 4, 7, 8, 2, 9, 6, 3, 4, 2, 9, 9, 7, 2, 3, 8, 4, 1, 10, 1, 7, 1, 5, 6, 6, 9, 1, 8, 10, 1, 3] \\
+
+
+Solving JSSP instance in file txt\_files/mt06.txt: \\
+Number of jobs: 6 \\ 
+Number of machines: 6 \\
+Job processing order (SPT rule): [1, 3, 5, 6, 1, 1, 4, 5, 5, 6, 6, 2, 3, 5, 6, 2, 3, 4, 4, 4, 5, 1, 1, 1, 3, 2, 3, 4, 3, 4, 5, 6, 2, 2, 2, 6] \\
+
+
+Solving JSSP instance in file txt\_files/mt10.txt: \\
+Number of jobs: 10 \\ 
+Number of machines: 10 \\
+Job processing order (SPT rule): [10, 5, 10, 10, 10, 10, 4, 5, 10, 9, 10, 10, 3, 10, 2, 10, 1, 8, 2, 6, 9, 4, 7, 4, 6, 3, 4, 5, 4, 8, 1, 1, 6, 7, 6, 6, 7, 2, 7, 6, 2, 8, 1, 3, 2, 9, 1, 1, 6, 7, 5, 9, 5, 7, 4, 8, 3, 5, 9, 4, 6, 4, 6, 9, 9, 5, 1, 4, 8, 3, 1, 4, 5, 2, 7, 8, 1, 8, 8, 9, 7, 3, 5, 2, 3, 8, 9, 7, 7, 2, 6, 8, 1, 2, 9, 2, 3, 5, 3, 3] \\
+
+
+Solving JSSP instance in file txt\_files/mt20.txt: \\
+Number of jobs: 20 \\
+Number of machines: 5 \\
+Job processing order (SPT rule): [20, 15, 20, 20, 20, 20, 5, 14, 19, 3, 12, 10, 11, 18, 2, 16, 19, 4, 7, 4, 10, 16, 3, 4, 15, 4, 8, 11, 6, 11, 7, 6, 6, 7, 12, 7, 10, 16, 2, 8, 1, 13, 2, 19, 1, 6, 7, 11, 5, 9, 5, 17, 14, 18, 5, 13, 19, 14, 16, 10, 6, 9, 14, 9, 15, 1, 14, 18, 3, 1, 4, 15, 12, 17, 18, 1, 8, 8, 19, 10, 17, 3, 5, 3, 8, 9, 12, 17, 17, 12, 16, 18, 2, 9, 11, 2, 13, 15, 13, 13]
+
+
+
+\section*{Ερώτημα 4} 
+.\\
+\begin{figure}[htbp]
+\centerline{\includegraphics{Job\_Shop\_Scheduling\_Gantt\_chart.png}}
+\caption{Screenshot από το αποτέλεσμα του γραφήματος Gantt Chart με την λύση του Job Shop Scheduling Problem με τη χρήση του (Shortest processing time) dispatching rule για το αρχείο la01.txt .}
+\label{fig}
+\end{figure}
+
+
+\section{Ερώτημα 5}
+
+
+\section{Συμπεράσματα}
+
+
+% \printbibliography
+\end{document}
