@@ -9,7 +9,7 @@ def spt_dispatching_rule(jobs):
     - List of job_ids in the order they should be processed (shortest processing time first).
     """
     sorted_jobs = sorted(jobs, key=lambda x: x[1])
-    return [job[0] for job in sorted_jobs]
+    return sorted_jobs # returning the jobs with the shortest processing time for each job.
 
 def read_instance(file_path): # reading the txt files.
     with open(file_path, 'r') as file:
@@ -17,7 +17,10 @@ def read_instance(file_path): # reading the txt files.
         num_machines = int(file.readline().strip())
 
         # Skip the makespan for now
-        _ = file.readline()
+        try: # check if there is a makespan.
+            makespan = int(file.readline().strip())
+        except ValueError:
+            makespan = None # if not, None is assigned to it.
 
         operations = []
 
@@ -26,11 +29,11 @@ def read_instance(file_path): # reading the txt files.
             operations.append(operation_times)
 
 
-        return num_jobs, num_machines, operations
+        return num_jobs, num_machines, operations, makespan
 
 
 def solve_jssp_instance(file_path):
-    num_jobs, num_machines, operations = read_instance(file_path)
+    num_jobs, num_machines, operations, makespan= read_instance(file_path)
 
     # Flatten the operations list to (job_id, processing_time) tuples.
     jobs_list = [(job_id, processing_time) for job_id, processing_times in enumerate(operations, 1)
@@ -41,6 +44,7 @@ def solve_jssp_instance(file_path):
     print(f'\nSolving JSSP instance in file {file_path}:')
     print(f'Number of jobs: {num_jobs}')
     print(f'Number of machines: {num_machines}')
+    print(f'Makespan: {makespan}')
     print(f'Job processing order (SPT rule): {result_order}')
 
 
@@ -51,5 +55,4 @@ file_paths = ['txt_files/la01.txt', 'txt_files/la02.txt', 'txt_files/la03.txt', 
 # Solve JSSP instances for each txt file.
 for file_path in file_paths:
     solve_jssp_instance(file_path)
-
 
