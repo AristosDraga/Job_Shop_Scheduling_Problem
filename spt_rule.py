@@ -166,6 +166,7 @@ def gantt_chart(schedule):
     JOBS = sorted(list(schedule_df['Operation'].apply(lambda x: x.split('_')[1]).unique()))
     MACHINES = sorted(list(schedule_df['Machine'].unique()))
     makespan = schedule_df['Finish'].max()
+    print(f'Makespan: {makespan}')
 
     bar_style = {'alpha': 1.0, 'lw': 25, 'solid_capstyle': 'butt'}
     text_style = {'color': 'white', 'weight': 'bold', 'ha': 'center', 'va': 'center'}
